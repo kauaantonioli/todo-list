@@ -3,6 +3,12 @@ const todoForm = document.querySelector(".todo-actions")
 const todoList = document.querySelector(".todo-list")
 const deleteBtn = document.querySelector(".delete-btn")
 
+let todos = JSON.parse(localStorage.getItem("todos")) || []
+
+todos.forEach((todo) => {
+    createTodo(todo)
+})
+
 function createTodo(todo) {
     const li = document.createElement("li")
     const name = document.createElement("p")
@@ -17,7 +23,13 @@ function createTodo(todo) {
     delBtn.classList.add("delete-btn")
     delBtnIcon.classList.add("fa-solid", "fa-trash")
     delBtn.addEventListener("click", () => {
+        todos = todos.filter((t) => {
+            return t !== todo
+        })
+
         li.remove()
+
+        localStorage.setItem("todos", JSON.stringify(todos))
     })
 
     check.type = "checkbox"
@@ -42,12 +54,16 @@ todoForm.addEventListener("submit", (e) => {
     const todo = todoInput.value.trim()
 
     if (!todo) {
+        alert("Não é possível adicionar uma tarefa vazia!")
         todoInput.value = ""
 
         return
     }
 
     createTodo(todo)
+    todos.push(todo)
+
+    localStorage.setItem("todos", JSON.stringify(todos))
 
     todoInput.value = ""
 })
