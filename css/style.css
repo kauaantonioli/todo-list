@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgray;
+    font-family: "Inter", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+    min-height: 650px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.todo-title {
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 25px;
+}
+
+.todo-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    /* max-width: 340px; */
+    background-color: lightgray;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    
+}
+
+.create-btn {
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background-color: orange;
+    padding: 12px;
+
+    &:hover {
+        background-color: darkorange;
+    }
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    padding-inline: 14px;
+    background-color: lightgray;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.task + .task {
+    margin-top: 5px
+}
+
+.done {
+    text-decoration: line-through;
+    color: lightgray;
+    background-color: gray;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.4);
+    accent-color: green;
+}
+
+.todo-list {
+    overflow: auto;
+    max-height: 450px;
+}
+
+.delete-btn {
+    border: none;
+    background-color: red;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: darkred;
+    }
+}
+
+button, input[type="checkbox"] {
+    cursor: pointer;
+}
+
